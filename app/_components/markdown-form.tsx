@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import MarkdownPreview from "./markdown-preview";
 
 const schema = z.object({
   content: z.string().min(2),
@@ -35,7 +36,7 @@ export default function MarkdownForm() {
                 <div className="flex gap-4">
                   <Textarea {...field} className="w-1/2" />
                   <div className="border-2 rounded-md w-1/2 p-2">
-                    {form.getValues().content}
+                    <MarkdownPreview content={form.getValues().content} />
                   </div>
                 </div>
               </FormControl>
