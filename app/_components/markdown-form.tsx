@@ -32,7 +32,12 @@ export default function MarkdownForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Textarea {...field} />
+                <div className="flex gap-4">
+                  <Textarea {...field} className="w-1/2" />
+                  <div className="border-2 rounded-md w-1/2 p-2">
+                    {form.getValues().content}
+                  </div>
+                </div>
               </FormControl>
             </FormItem>
           )}
